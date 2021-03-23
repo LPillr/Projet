@@ -123,3 +123,22 @@ def orderbyquantity():
     checkorderprice()
     checkorderquantity()
 
+def checkorderprice():
+    for i in range(len(order_list)-1):
+        if order_list[i].types==order_list[i+1].types:
+            if order_list[i].price<order_list[i+1].price:
+                orderbyprice()
+    checkordertype()
+                
+def checkordertype():
+    for i in range(len(order_list)-1):
+        if order_list[i].types<order_list[i+1].types:
+            orderbytype()
+        
+def checkorderquantity():
+    for i in range(len(order_list)-1):
+        for i in range(len(order_list)-1):
+            if order_list[i].types==order_list[i+1].types:
+                if order_list[i].price==order_list[i+1].price:
+                    if order_list[i].qtty<order_list[i+1].qtty:
+                        
