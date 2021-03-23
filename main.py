@@ -10,6 +10,6 @@ def main():
     book.insert_sell(1, 10.0) 
     book.insert_sell(10, 10.0)
 
-if _name_ == "_main_": 
+if __name__ == "__main__": 
     main()
 
