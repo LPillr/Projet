@@ -76,3 +76,50 @@ class Order:
         self.price = price
         self.types = types #0 for buy and 1 for sell 
         self.uniqid = uniqid
+
+###########################################################################
+################################ FUNCTIONS ################################
+###########################################################################
+
+def sellorbuy(types):
+    if types ==1 :
+        return ("SELL")
+    else :
+        return ("BUY")
+
+#Sort the order book
+
+def orderbytype():
+    a = Order(0,0,0,0)
+    for i in range(len(order_list)-1):
+        if order_list[i].types < order_list[i+1].types:
+            a=order_list[i]
+            order_list[i]=order_list[i+1]
+            order_list[i+1]=a
+
+def orderbyprice():
+    a = Order(0,0,0,0)
+    for i in range(len(order_list)-1):
+        if order_list[i].types==order_list[i+1].types:
+            if order_list[i].price < order_list[i+1].price:
+                a=order_list[i]
+                order_list[i]=order_list[i+1]
+                order_list[i+1]=a
+    #I need to double check my sort
+    checkordertype()
+    checkorderprice()
+
+def orderbyquantity():
+    a = Order(0,0,0,0)
+    for i in range(len(order_list)-1):
+        if order_list[i].types==order_list[i+1].types:
+            if order_list[i].price==order_list[i+1].price:
+                if order_list[i].qtty<order_list[i+1].qtty:
+                    a=order_list[i]
+                    order_list[i]=order_list[i+1]
+                    order_list[i+1]=a
+    #I need to check again my sort
+    checkordertype()
+    checkorderprice()
+    checkorderquantity()
+
