@@ -141,4 +141,5 @@ def checkorderquantity():
             if order_list[i].types==order_list[i+1].types:
                 if order_list[i].price==order_list[i+1].price:
                     if order_list[i].qtty<order_list[i+1].qtty:
-                        
+                       orderbyquantity()
+
