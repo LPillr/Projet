@@ -70,4 +70,9 @@ class Book(str):
                 if o.types==1: #i need to verirify that I don't have a seller for my buyer
                     Book.orderpassing(self, o)
                 
-
+class Order:
+    def __init__(self, qtty, price,types,uniqid):
+        self.qtty = qtty
+        self.price = price
+        self.types = types #0 for buy and 1 for sell 
+        self.uniqid = uniqid
